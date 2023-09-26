@@ -1,0 +1,19 @@
+{
+  "resources": {
+    "includes": [
+      {
+        "pattern": "polyglot/python/src.*.py$"
+      },
+      {
+        "pattern": "dataset.*.csv$"
+      },
+      {
+        "pattern": "polyglot/python/.env/bin/graalpy$"
+      },
+      {
+        "pattern": "logging.properties$"
+      }
+    ],
+    "excludes": []
+  }
+}
