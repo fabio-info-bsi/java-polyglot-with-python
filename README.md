@@ -44,3 +44,17 @@ https://github.com/oracle/graalpython
 
 ---
 ## Run
+
+## Implementation Python embedded code in Java
+
+Class         | Description
+------------ | -------------
+`br.com.fabex.HelloWorld` | Implementation of the many options to do a simple "Hello World".
+`br.com.fabex.MathOperators` | Implementation of maths operations: `+`, `-`, `*` & `/`.
+`br.com.fabex.SortArrayWithNumpy` | Implementation of the simple ordenation array with dependency `numpy`.
+`br.com.fabex.CodeCachingByEngineInContexts` | Examples of cache and no-cache code in contexts(Engine Graal).
+`br.com.fabex.ControllingAccessToHostFunction` | Implementation of how controlling access to host(Java) by Function.
+`br.com.fabex.SharedValueInContext` | A simple example sharing values though languages: `Java`, `Js`and `Python` with api polyglot GraalVM.
+`br.com.fabex.Multithreading` | A simple example how create and run threads `Python` though interoperability with `Java`. 
+`br.com.fabex.ModifyExecutablePython` | Changing executable `Python` for specific environment.
+`br.com.fabex.TaskAnalyzerUserRollout` | A almost real world Task with use dependency `pandas` for analyze many datas in file `.csv`
