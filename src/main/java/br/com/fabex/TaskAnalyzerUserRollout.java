@@ -59,8 +59,8 @@ public class TaskAnalyzerUserRollout {
 
             ctx.eval(Source.newBuilder("python", urlScriptPython).build());
 
-            //Value globalDataRollout = ctx.getBindings("python").getMember("globalDataRollout");
-            //LOGGER.info("Global Datasource: " + globalDataRollout.toString());
+            Value globalDataRollout = ctx.getBindings("python").getMember("globalDataRollout");
+            LOGGER.info("Global Datasource: " + globalDataRollout.toString());
 
             Value methodUserRollOutAnalysis = ctx.getBindings("python")
                     .getMember("methodUserRollOutAnalysis");
@@ -95,8 +95,8 @@ public class TaskAnalyzerUserRollout {
             LOGGER.info("Result: %d".formatted(resultAnalyze.getHashValue("total").asInt()));
             LOGGER.info("= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =");
 
-            //globalDataRollout = ctx.getBindings("python").getMember("globalDataRollout");
-            //LOGGER.info("Global Datasource: %s".formatted(globalDataRollout.toString()));
+            globalDataRollout = ctx.getBindings("python").getMember("globalDataRollout");
+            LOGGER.info("Global Datasource: %s".formatted(globalDataRollout.toString()));
 
             if (null != System.getProperty("loopPerformance")) {
                 int loopPerformance = Integer.parseInt(System.getProperty("loopPerformance"));

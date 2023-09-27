@@ -5,8 +5,9 @@ import org.graalvm.polyglot.Value;
 
 public class ObjectMetaDado {
     private String id, module;
-
+    @HostAccess.Export
     private Value value;
+
     public ObjectMetaDado(String id, String module) {
         this.id = id;
         this.module = module;
@@ -14,6 +15,7 @@ public class ObjectMetaDado {
     }
 
     @HostAccess.Export
+    @HostAccess.DisableMethodScoping /* Em HostAccess.SCOPED, essa antocacao permite que o metodo possa compartilhar entrada de dados (parametro do metodo) */
     public void setValue(Value value) {
         this.value = value;
     }
@@ -26,9 +28,9 @@ public class ObjectMetaDado {
     @HostAccess.Export
     public String getDetail() {
         return """
-                    {
-                        "id": %s,
-                        "module": %s
-                    }""".formatted(this.id, this.module);
+                {
+                    "id": %s,
+                    "module": %s
+                }""".formatted(this.id, this.module);
     }
 }

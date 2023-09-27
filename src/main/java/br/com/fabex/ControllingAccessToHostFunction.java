@@ -15,7 +15,10 @@ public class ControllingAccessToHostFunction {
                 .allowPolyglotAccess(PolyglotAccess.newBuilder()
                         .allowBindingsAccess("python")
                         .build())
-                .allowHostAccess(HostAccess.EXPLICIT)
+                //.allowHostAccess(HostAccess.ALL) /* Permite acesso a todos os membros 'public' */
+                //.allowHostAccess(HostAccess.EXPLICIT) /* Todos que usam @HostAccess.Export */
+                /* Sem interacao de entrada da linguagem conidada (dados atraves de parametro de metodo) salve excecao dos metodos com @HostAccess.DisableMethodScoping */
+                .allowHostAccess(HostAccess.SCOPED)
                 .allowValueSharing(false)
                 .allowIO(IOAccess.ALL)
                 .allowExperimentalOptions(true)
@@ -29,8 +32,7 @@ public class ControllingAccessToHostFunction {
 
             System.out.println("Before: " + metaDado.getValue().toString());
 
-            /* getBindings - não precisa usar poly.import_value('metaDado'), implicitamente é incorporada no código
-            python. */
+            /* getBindings - não precisa usar poly.import_value('metaDado'), implicitamente é incorporada no código python. */
             ctx.getBindings("python").putMember("metaDado", metaDado);
 
             ctx.eval(Source.newBuilder("python", urlScriptPython).build());

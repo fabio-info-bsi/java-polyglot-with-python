@@ -19,20 +19,19 @@ public class CodeCachingByEngineInContexts {
         try (Engine engine = Engine.newBuilder("python")
                 .allowExperimentalOptions(true)
                 .build()) {
-            /*URL urlScriptPython = HelloWorld.class
+            URL urlScriptPython = HelloWorld.class
                     .getClassLoader()
-                    .getResource(Paths.get("polyglot/python/script-math.py").toString());*/
-            var urlScriptPython = Paths.get("/Users/fabio.henrique/Workspace-fabex/java-polyglot-with-python/target/classes/polyglot/python/script-math.py").toFile();
+                    .getResource(Paths.get("polyglot/python/src/script-math.py").toString());
             Source source = Source.newBuilder("python", urlScriptPython)
-                    .cached(true) /* default é true */
+                    .cached(true) /* default is true */
                     .build();
             System.out.println("Caching Engine");
-            IntStream.rangeClosed(1, 1050).forEach(i -> runningContextByEngine(engine, source));
+            IntStream.rangeClosed(1, 1_000).forEach(i -> runningContextByEngine(engine, source));
             System.out.println("Renew Engine");
             Source sourceNoCached = Source.newBuilder("python", urlScriptPython)
                     .cached(false)
                     .build();
-            IntStream.rangeClosed(1, 1050).forEach(i -> runningContextByEngine(Engine.create(), sourceNoCached));
+            IntStream.rangeClosed(1, 1_000).forEach(i -> runningContextByEngine(Engine.create(), sourceNoCached));
 
         }
     }

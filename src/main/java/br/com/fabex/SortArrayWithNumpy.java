@@ -6,6 +6,8 @@ import org.graalvm.polyglot.Value;
 
 import java.net.URL;
 import java.nio.file.Paths;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
@@ -13,7 +15,8 @@ import java.util.stream.LongStream;
 public class SortArrayWithNumpy {
 
     public static void main(String[] args) throws Exception {
-        try (Context ctx = Context.newBuilder().allowExperimentalOptions(true)
+        try (Context ctx = Context.newBuilder()
+                .allowExperimentalOptions(true)
                 .option("python.ForceImportSite", "true")
                 .allowAllAccess(true)
                 .build()) {
@@ -35,16 +38,17 @@ public class SortArrayWithNumpy {
             System.out.println("Unsorted    => " + IntStream.of(unsorted).boxed().toList());
             System.out.println("Sorted      => " + list);
 
-            /*System.out.println("Run [loop x100.000]");
+            System.out.println("Run [loop x10.000]");
             IntStream.range(0, 10_000).forEach(i -> {
                 unsorted[0] = i;
                 Instant start = Instant.now();
                 method.execute(unsorted);
                 Instant finish = Instant.now();
-                System.out.printf("%d x Execution | Time(milli, nano):%d | %d%n", i,
+                System.out.printf("%d x Execution | Time(sec, milli, nano): %d | %d | %d%n", i,
+                        Duration.between(start, finish).toSeconds(),
                         Duration.between(start, finish).toMillis(),
                         Duration.between(start, finish).toNanos());
-            });*/
+            });
         }
     }
 }

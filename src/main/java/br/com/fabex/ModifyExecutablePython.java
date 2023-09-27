@@ -11,24 +11,16 @@ import java.util.Objects;
 public class ModifyExecutablePython {
 
     public static void main(String[] args) throws Exception {
-        String venvExePathGraalVm = Paths.get("/Users/fabio.henrique/Workspace-fabex/java-polyglot-with-python/src/main/resources/polyglot/python/.env/bin/graalpy")
-                                .toString();
-
-        /*String venvExePathonV3dot8 = Objects.requireNonNull(TaskAnalyzerUserRollout.class
-                .getClassLoader()
-                .getResource(Paths.get("polyglot/python/", ".env-3.8.5", "bin", "python")
-                        .toString()))
-                .getPath();*/
-        //System.out.println(venvExePathonV3dot8);
-        String venvExePath = venvExePathGraalVm;//venvExePathGraalVm
+        String venvExePath = Objects.requireNonNull(TaskAnalyzerUserRollout.class
+                        .getClassLoader()
+                        .getResource(Paths.get("polyglot/python/", ".env-3", "bin", "graalpython")
+                                .toString()))
+                .getPath();
         try (Context ctx = Context
                 .newBuilder("python")
-                //.option("llvm.managed", "true")
                 .allowAllAccess(true)
-                //.allowExperimentalOptions(true)
                 .option("python.ForceImportSite", "true") /* 'import site' - dependencies in site-packages */
                 .option("python.Executable", venvExePath) /* Different executable Python */
-                //.option("python.Executable", "python/.env-3.8.5/bin/python")
                 .build()) {
             URL urlScriptPython = HelloWorld.class
                     .getClassLoader()

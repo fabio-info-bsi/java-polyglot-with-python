@@ -10,15 +10,14 @@ import java.nio.file.Paths;
 
 public class MathOperators {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         try (Context ctx = Context
                 .newBuilder()
                 .allowAllAccess(true)
                 .build()) {
-            /*URL urlScriptPython = HelloWorld.class
+            URL urlScriptPython = HelloWorld.class
                     .getClassLoader()
-                    .getResource(Paths.get("polyglot/python/script-math.py").toString());*/
-            var urlScriptPython =  Paths.get("/Users/fabio.henrique/Workspace-fabex/java-polyglot-with-python/target/classes/polyglot/python/script-math.py").toFile();
+                    .getResource(Paths.get("polyglot/python/src/script-math.py").toString());
             ctx.eval(Source.newBuilder("python", urlScriptPython).build());
             Value result;
 
@@ -34,12 +33,12 @@ public class MathOperators {
             Value methodMultiply = ctx.getBindings("python").getMember("multiply");
             System.out.println(methodMultiply.execute(1, 7).asLong());
 
-            try{
+            try {
                 Value methodDivide = ctx.getBindings("python").getMember("divide");
                 System.out.println(methodDivide.execute(1, 7).asDouble());
                 /* Force Exception */
                 System.out.println(methodDivide.execute(1, 0).asDouble());
-            }catch (Exception e){
+            } catch (Exception e) {
                 System.out.println(e.getClass());
                 System.out.println(e.getMessage());
             }

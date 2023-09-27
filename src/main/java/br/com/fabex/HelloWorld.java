@@ -12,7 +12,7 @@ public class HelloWorld {
     public static void main(String[] args) throws Exception{
         try (Context ctx = Context
                 .newBuilder()
-                .allowAllAccess(true)
+                .allowAllAccess(true) /* Cuidado! */
                 .build()) {
             URL urlScriptPython = HelloWorld.class
                     .getClassLoader()
