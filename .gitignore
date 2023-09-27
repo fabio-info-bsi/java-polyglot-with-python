@@ -44,3 +44,4 @@ build/
 *.crt
 *.log
 .env-*
+tools
