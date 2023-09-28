@@ -16,7 +16,7 @@ This project have objective to implement `Python` code embedded in `Java` though
  [`br.com.fabex.SortArrayWithNumpy`](src/main/java/br/com/fabex/SortArrayWithNumpy.java)| Implementation simple ordenation array with dependency `numpy`.                                       
  [`br.com.fabex.CodeCachingByEngineInContexts`](src/main/java/br/com/fabex/CodeCachingByEngineInContexts.java)| Examples of cache and no-cache code in contexts(Engine Graal).                                        
  [`br.com.fabex.ControllingAccessToHostFunction`](src/main/java/br/com/fabex/ControllingAccessToHostFunction.java)| Example of how controlling access to host(Java) by Function.                                   
- [`br.com.fabex.SharedValueInContext`](src/main/java/br/com/fabex/SharedValueInContext.java)| Um exemplo simples de compartilhamento de valores através de linguagens: `Java`, `Js` e `Python` com API poliglota GraalVM.
+ [`br.com.fabex.SharedValueInContext`](src/main/java/br/com/fabex/SharedValueInContext.java)| A simple example sharing values though languages: `Java`, `Js`and `Python` with api polyglot GraalVM.
  [`br.com.fabex.Multithreading`](src/main/java/br/com/fabex/Multithreading.java)| A simple example how create and run threads `Python` though interoperability with `Java`.             
  [`br.com.fabex.ModifyExecutablePython`](src/main/java/br/com/fabex/ModifyExecutablePython.java)| Changing executable `Python` for specific environment.                                               
  [`br.com.fabex.TaskAnalyzerUserRollout`](src/main/java/br/com/fabex/TaskAnalyzerUserRollout.java)| A almost real world Task with use dependency `pandas` for analyze many datas in file `.csv`.          
