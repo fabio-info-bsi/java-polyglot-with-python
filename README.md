@@ -18,8 +18,8 @@ This project have objective to implement `Python` code embedded in `Java` though
  [`br.com.fabex.ControllingAccessToHostFunction`](src/main/java/br/com/fabex/ControllingAccessToHostFunction.java)| Example of how controlling access to host(Java) by Function.                                   
  [`br.com.fabex.SharedValueInContext`](src/main/java/br/com/fabex/SharedValueInContext.java)| Um exemplo simples de compartilhamento de valores através de linguagens: `Java`, `Js` e `Python` com API poliglota GraalVM.
  [`br.com.fabex.Multithreading`](src/main/java/br/com/fabex/Multithreading.java)| A simple example how create and run threads `Python` though interoperability with `Java`.             
- [`br.com.fabex.ModifyExecutablePython`](src/main/java/br/com/fabex/ModifyExecutablePython.java)| Alterando o executável `Python` para ambiente específico.                                               
- [`br.com.fabex.TaskAnalyzerUserRollout`](src/main/java/br/com/fabex/TaskAnalyzerUserRollout.java)| Uma tarefa quase do mundo real utilizando dependência `pandas` para analisar muitos dados em arquivo `.csv`.          
+ [`br.com.fabex.ModifyExecutablePython`](src/main/java/br/com/fabex/ModifyExecutablePython.java)| Changing executable `Python` for specific environment.                                               
+ [`br.com.fabex.TaskAnalyzerUserRollout`](src/main/java/br/com/fabex/TaskAnalyzerUserRollout.java)| A almost real world Task with use dependency `pandas` for analyze many datas in file `.csv`.          
 
 ---
 
