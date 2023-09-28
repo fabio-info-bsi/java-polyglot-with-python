@@ -90,7 +90,3 @@ References:
 > - [`br.com.fabex.TaskAnalyzerUserRollout`](src/main/java/br/com/fabex/TaskAnalyzerUserRollout.java)
 
 ---
-
-## Run
-
-For running 

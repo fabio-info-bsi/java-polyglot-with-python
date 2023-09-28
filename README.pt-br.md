@@ -2,7 +2,7 @@
 
 [![en](https://img.shields.io/badge/lang-en-red.svg)](README.md)
 
-Este projeto tem o objetivo de implementar código `Python` incorporado no `Java`através de programação polyglota no GraalVM.
+Este projeto tem o objetivo de implementar código `Python` incorporado no `Java` através de programação polyglota no GraalVM.
 
 ---
 
@@ -73,7 +73,7 @@ Referências:
 
 `$JAVA_HOME/bin/gu install python`
 
-### Instalação de ambientes e pacotes Python
+### Instalação de ambiente e pacotes Python
 
 `$JAVA_HOME/languages/python/bin/graalpy -m venv .env `
 
