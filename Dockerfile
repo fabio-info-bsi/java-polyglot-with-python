@@ -46,6 +46,5 @@ RUN $JAVA_HOME/languages/python/bin/graalpy -m ensurepip --upgrade
 RUN $JAVA_HOME/languages/python/bin/graalpy -m ginstall install pytz, six, numpy, python-dateutil, pandas
 #RUN graalpy -m ginstall install numpy
 #RUN graalpy -m ginstall install numpy==1.23.5
-#RUN graalpy -m pip install numpy==1.23.5
 
 CMD ["bash"]
