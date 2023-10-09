@@ -59,43 +59,43 @@ public class TaskAnalyzerUserRollout {
 
             ctx.eval(Source.newBuilder("python", urlScriptPython).build());
 
-            Value globalDataRollout = ctx.getBindings("python").getMember("globalDataRollout");
+            Value globalDataRollout = ctx.getBindings("python").getMember("global_data_rollout");
             LOGGER.info("Global Datasource: " + globalDataRollout.toString());
 
             Value methodUserRollOutAnalysis = ctx.getBindings("python")
-                    .getMember("methodUserRollOutAnalysis");
+                    .getMember("method_user_roll_out_analysis");
             Instant start = Instant.now();
             Value resultAnalyze = methodUserRollOutAnalysis.execute(path, "SEED");
             Instant finish = Instant.now();
-            LOGGER.info("%sx Execution(methodUserRollOutAnalysis) | Time(milli, nano):  %d | %d".formatted(1,
+            LOGGER.info("%sx Execution(method_user_roll_out_analysis) | Time(milli, nano):  %d | %d".formatted(1,
                     Duration.between(start, finish).toMillis(),
                     Duration.between(start, finish).toNanos()));
             LOGGER.info("Result: %d".formatted(resultAnalyze.getHashValue("total").asInt()));
             LOGGER.info("= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =");
 
             Value methodUserRollOutAnalysisOptimizedLogging = ctx.getBindings("python")
-                    .getMember("methodUserRollOutAnalysisOptimizedLogging");
+                    .getMember("method_user_roll_out_analysis_optimized_logging");
             start = Instant.now();
             methodUserRollOutAnalysisOptimizedLogging.execute(path, "SMALL");
             finish = Instant.now();
-            LOGGER.info("%sx Execution(methodUserRollOutAnalysisOptimizedLogging) | Time(milli, nano):  %d | %d".formatted(1,
+            LOGGER.info("%sx Execution(method_user_roll_out_analysis_optimized_logging) | Time(milli, nano):  %d | %d".formatted(1,
                     Duration.between(start, finish).toMillis(),
                     Duration.between(start, finish).toNanos()));
             LOGGER.info("Result: %d".formatted(resultAnalyze.getHashValue("total").asInt()));
             LOGGER.info("= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =");
 
             Value methodUserRollOutOptimizeAnalysis = ctx.getBindings("python")
-                    .getMember("methodUserRollOutAnalysisOptimized");
+                    .getMember("method_user_roll_out_analysis_optimized");
             start = Instant.now();
             resultAnalyze = methodUserRollOutOptimizeAnalysis.execute(path, "MEDIUM");
             finish = Instant.now();
-            LOGGER.info("%sx Execution(methodUserRollOutOptimizeAnalysis) | Time(milli, nano):  %d | %d".formatted(1,
+            LOGGER.info("%sx Execution(method_user_roll_out_analysis_optimized) | Time(milli, nano):  %d | %d".formatted(1,
                     Duration.between(start, finish).toMillis(),
                     Duration.between(start, finish).toNanos()));
             LOGGER.info("Result: %d".formatted(resultAnalyze.getHashValue("total").asInt()));
             LOGGER.info("= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =");
 
-            globalDataRollout = ctx.getBindings("python").getMember("globalDataRollout");
+            globalDataRollout = ctx.getBindings("python").getMember("global_data_rollout");
             LOGGER.info("Global Datasource: %s".formatted(globalDataRollout.toString()));
 
             if (null != System.getProperty("loopPerformance")) {
