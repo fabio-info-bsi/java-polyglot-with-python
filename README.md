@@ -49,15 +49,18 @@ https://www.graalvm.org/jdk17/docs/introduction/
 
 https://www.graalvm.org/jdk17/docs/getting-started/
 
-### Via Sdkman
+### Via Sdkman (CE or EE)
 
-> GraalVM Sdk 17(GraalVM Community)
+> GraalVM SDK 17(Community Edition)
 
 `sdk install java 17.y.z-graalce`
 
-> GraalVM (Oracle)
+> GraalVM SDK 17(Enterprise Edition)
 
 `sdk install java 17.y.z-graal`
+
+### For Windows
+https://www.graalvm.org/jdk17/docs/getting-started/windows/
 
 ---
 

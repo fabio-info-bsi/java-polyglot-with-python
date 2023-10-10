@@ -48,7 +48,7 @@ https://www.graalvm.org/jdk17/docs/introduction/
 
 https://www.graalvm.org/jdk17/docs/getting-started/
 
-### Via Sdkman
+### Via Sdkman (CE ou EE)
 
 > GraalVM Sdk 17(GraalVM Community)
 
