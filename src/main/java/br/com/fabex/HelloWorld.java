@@ -19,12 +19,12 @@ public class HelloWorld {
                     .getResource(Paths.get("polyglot/python/src/script-utils.py").toString());
 
             ctx.eval(Source.newBuilder("python", urlScriptPython).build());
-            ctx.eval("python", "print('Hello world')");
+            ctx.eval("python", "print('Hello world - JS')");
             ctx.eval("python", "name, nickName = 'Fabio', 'Fabex'");
 
             final String PYTHON_SNIPPET_METHOD = """
                     def methodHelloSnippet():
-                        print('Hello world')
+                        print('Hello world - JS')
                     """;
             ctx.eval("python", PYTHON_SNIPPET_METHOD);
             ctx.getBindings("python").getMember("methodHelloSnippet").execute();
