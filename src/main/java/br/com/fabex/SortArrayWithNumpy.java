@@ -9,15 +9,21 @@ import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
 public class SortArrayWithNumpy {
 
     public static void main(String[] args) throws Exception {
+        String venvExePath = Objects.requireNonNull(TaskAnalyzerUserRollout.class
+                        .getClassLoader()
+                        .getResource(Paths.get("polyglot", "python", ".env", "bin", "graalpy").toString()))
+                .getPath();
         try (Context ctx = Context.newBuilder()
                 .allowExperimentalOptions(true)
                 .option("python.ForceImportSite", "true")
+                .option("python.Executable", venvExePath)
                 .allowAllAccess(true)
                 .build()) {
 
