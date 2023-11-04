@@ -24,8 +24,8 @@ Este projeto tem o objetivo de implementar código `Python` incorporado no `Java
 
 ## Pré-requisitos
 
-- [GraalVM 17 SDK](https://www.graalvm.org/jdk17/docs/)
-    - [Graalpy(Python)](https://www.graalvm.org/jdk17/reference-manual/python/)
+- [GraalVM 21 SDK](https://www.graalvm.org/jdk21/docs/)
+    - [Graalpy(Python)](https://www.graalvm.org/jdk21/reference-manual/python/)
 - Maven >= 3
 
 ---
@@ -36,27 +36,27 @@ Este projeto tem o objetivo de implementar código `Python` incorporado no `Java
 
 ---
 
-## GraalVM SDK 17
+## GraalVM SDK 21
 
 GraalVM compila seus aplicativos Java antecipadamente em binários independentes. Esses binários são menores, começam até
 100x mais rápido, fornece desempenho máximo sem aquecimento(jvm warmup) e usa menos memória e CPU do que aplicativos
 executados em uma Java Virtual Machine (JVM).
 
-https://www.graalvm.org/jdk17/docs/introduction/
+https://www.graalvm.org/jdk21/docs/introduction/
 
 ## Instalação
 
-https://www.graalvm.org/jdk17/docs/getting-started/
+https://www.graalvm.org/jdk21/docs/getting-started/
 
 ### Via Sdkman (CE ou EE)
 
-> GraalVM Sdk 17(GraalVM Community)
+> GraalVM Sdk 21(GraalVM Community)
 
-`sdk install java 17.y.z-graalce`
+`sdk install java 21.y.z-graalce`
 
 > GraalVM (Oracle)
 
-`sdk install java 17.y.z-graal`
+`sdk install java 21.y.z-graal`
 
 ---
 
@@ -65,21 +65,39 @@ https://www.graalvm.org/jdk17/docs/getting-started/
 GraalPy fornece um ambiente de execução compatível com Python 3.10.
 Referências:
 
-- https://www.graalvm.org/jdk17/reference-manual/python/
+- https://www.graalvm.org/jdk21/reference-manual/python/
 
 - https://github.com/oracle/graalpython
 
 ### Instalação do graalpy
 
-`$JAVA_HOME/bin/gu install python`
+#### Pyenv
+`pyenv install graalpy-23.1.0`
+
+#### Conda-Forge
+`conda create -c conda-forge -n graalpy graalpy`
+
+#### Para Windows
+Há uma versão prévia do GraalPy para Windows que você pode [baixar](https://github.com/oracle/graalpython/releases/). Ele suporta a instalação de pacotes Python puros via pip. As extensões nativas são um trabalho em andamento.
+
+A compilação do Windows tem vários problemas conhecidos:
+
+- JLine trata o Windows como um terminal burro, sem preenchimento automático e recursos de edição limitados no REPL
+- help() interativo no REPL não funciona
+- Dentro dos ambientes:
+  - graalpy.cmd e graalpy.exe estão quebrados
+  - pip.exe não pode ser usado diretamente
+  - pip tem problemas com o carregamento do arquivo de cache, use `--no-cache-dir`
+  - Apenas binárias Python puros podem ser instaladas, sem extensões nativas ou compilações de código-fonte
+  - Para instalar um pacote, use `myvenv/Scripts/python.cmd -m pip --no-cache-dir install <pkg>
+- Executar a partir do PowerShell funciona melhor do que executar a partir do CMD; vários scripts vão falhar via CMD.
+
 
 ### Instalação de ambiente e pacotes Python
 
-`$JAVA_HOME/languages/python/bin/graalpy -m venv .env `
+`graalpy -m venv .env `
 
 `source .env/bin/activate`
-
-`$JAVA_HOME/languages/python/bin/graalpy -m ensurepip --upgrade`
 
 `graalpy -m pip install -r requirements.txt` or `graalpy -m ginstall install <package>==<version>`
 

@@ -25,8 +25,8 @@ This project have objective to implement `Python` code embedded in `Java` though
 
 ## Prerequisites
 
-- [GraalVM 17 SDK](https://www.graalvm.org/jdk17/docs/)
-    - [Graalpy(Python)](https://www.graalvm.org/jdk17/reference-manual/python/)
+- [GraalVM 21 SDK](https://www.graalvm.org/jdk21/docs/)
+    - [Graalpy(Python)](https://www.graalvm.org/jdk21/reference-manual/python/)
 - Maven >= 3
 
 ---
@@ -37,54 +37,71 @@ This project have objective to implement `Python` code embedded in `Java` though
 
 ---
 
-## GraalVM SDK 17
+## GraalVM SDK 21
 
 GraalVM compiles your Java applications ahead of time into standalone binaries. These binaries are smaller, start up to
 100x faster, provide peak performance with no warmup, and use less memory and CPU than applications running on a Java
 Virtual Machine (JVM).
 
-https://www.graalvm.org/jdk17/docs/introduction/
+https://www.graalvm.org/jdk21/docs/introduction/
 
 ## Install
 
-https://www.graalvm.org/jdk17/docs/getting-started/
+https://www.graalvm.org/jdk21/docs/getting-started/
 
 ### Via Sdkman (CE or EE)
 
-> GraalVM SDK 17(Community Edition)
+> GraalVM SDK 21(Community Edition)
 
-`sdk install java 17.y.z-graalce`
+`sdk install java 21.y.z-graalce`
 
-> GraalVM SDK 17(Enterprise Edition)
+> GraalVM SDK 21(Enterprise Edition)
 
-`sdk install java 17.y.z-graal`
+`sdk install java 21.y.z-graal`
 
 ### For Windows
 https://www.graalvm.org/jdk17/docs/getting-started/windows/
 
 ---
 
-## Graalpy(Python)
+## Graalpy (Python)
 
 GraalPy provides a Python 3.10 compliant runtime.
 
 References:
 
-- https://www.graalvm.org/jdk17/reference-manual/python/
+- https://www.graalvm.org/jdk21/reference-manual/python/
 
 - https://github.com/oracle/graalpython
 
 ### Install graalpy
 
-`$JAVA_HOME/bin/gu install python`
+#### Pyenv
+`pyenv install graalpy-23.1.0`
+
+#### Conda-Forge
+`conda create -c conda-forge -n graalpy graalpy`
+
+#### For Windows
+There is a GraalPy preview build for Windows that you can [download](https://github.com/oracle/graalpython/releases/). It supports installation of pure Python packages via pip. Native extensions are a work in progress.
+
+The Windows build has several known issues:
+
+- JLine treats Windows a dumb terminal, no autocomplete and limited editing capabilities in the REPL
+- Interactive help() in the REPL doesn’t work
+- Inside venvs:
+  - graalpy.cmd and graalpy.exe are broken
+  - pip.exe cannot be used directly
+  - pip has trouble with cache file loading, use `--no-cache-dir`
+  - Only pure Python binary wheels can be installed, no native extensions or source builds
+  - To install a package, use `myvenv/Scripts/python.cmd -m pip --no-cache-dir install <pkg>`
+- Running from PowerShell works better than running from CMD, various scripts will fail on the latter
 
 ### Install dependency Python
 
-`$JAVA_HOME/languages/python/bin/graalpy -m venv .env `
+`graalpy -m venv .env`
 
 `source .env/bin/activate`
-
-`$JAVA_HOME/languages/python/bin/graalpy -m ensurepip --upgrade`
 
 `graalpy -m pip install -r requirements.txt` or `graalpy -m ginstall install <package>==<version>`
 
