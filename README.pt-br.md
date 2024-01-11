@@ -101,7 +101,7 @@ A compilação do Windows tem vários problemas conhecidos:
 
 `graalpy -m pip install -r requirements.txt` or `graalpy -m ginstall install <package>==<version>`
 
-> Se o seu código tiver pacotes externos de dependência, você precisará instalar com esta etapa. Exemplos que precisam instalar os pacotes Numpy e Pandas são:
+> Se seu código obtém pacotes externos de dependência, será preciso instalar com esta etapa. Exemplos que precisam instalar os pacotes Numpy e Pandas são:
 > - [`br.com.fabex.SortArrayWithNumpy`](src/main/java/br/com/fabex/SortArrayWithNumpy.java)
 > - [`br.com.fabex.TaskAnalyzerUserRollout`](src/main/java/br/com/fabex/TaskAnalyzerUserRollout.java)
 
