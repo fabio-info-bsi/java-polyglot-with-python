@@ -32,8 +32,9 @@ public class HelloWorld {
             Value method = ctx.getBindings("python").getMember("methodHello");
             method.execute();
 
-            Value member = ctx.getBindings("python").getMember("nickName");
-            System.out.println(member.asString());
+            Value name = ctx.getBindings("python").getMember("nickName");
+            Value nickname = ctx.getBindings("python").getMember("nickName");
+            System.out.println(name.asString() + " " + nickname.asString());
         }
     }
 }
