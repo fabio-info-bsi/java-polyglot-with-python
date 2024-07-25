@@ -32,7 +32,7 @@ public class SortArrayWithNumpy {
 
             ctx.eval(Source.newBuilder("python", urlScriptPython).build());
 
-            Value method = ctx.getBindings("python").getMember("methodSortArray");
+            Value method = ctx.getBindings("python").getMember("method_sort_array");
 
             final int[] unsorted =
                     {499, 200, 549, 2, 3, 567, 44, 8, 222, 9, 5, 44, 7, 78, 22, 45, 2212, 567, 34, 4556, 87, 44};

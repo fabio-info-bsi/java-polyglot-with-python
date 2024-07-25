@@ -37,7 +37,7 @@ public class ControllingAccessToHostFunction {
 
             ctx.eval(Source.newBuilder("python", urlScriptPython).build());
             Value methodRun = ctx.getBindings("python")
-                    .getMember("methodControllingValueToHostAndPython");
+                    .getMember("method_controlling_value_to_host_and_python");
             methodRun.execute();
             System.out.println("After: " + metaDado.getValue().asString());
 
