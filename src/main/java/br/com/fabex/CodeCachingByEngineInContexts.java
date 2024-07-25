@@ -12,8 +12,9 @@ import java.util.stream.IntStream;
 public class CodeCachingByEngineInContexts {
 
     /* Até a data do teste (10/09/2023) há um limitação com relação a muti-contextos quando usando com extenções C
-     * ou código nativo. [Se utilizar scritp: script-sort-array-with-numpy.py chamando metodo: methodSortArray
-     * terá erro: Exception in thread "main" SystemError: cannot execute multi-context code with native extensions] */
+     * ou código nativo. [Se utilizar scritp: script-sort-array-with-numpy.py chamando metodo: method_sort_array
+     * terá erro: Exception in thread "main" SystemError: cannot execute multi-context code with native extensions]
+     * */
     public static void main(String[] args) throws Exception {
 
         try (Engine engine = Engine.newBuilder("python")

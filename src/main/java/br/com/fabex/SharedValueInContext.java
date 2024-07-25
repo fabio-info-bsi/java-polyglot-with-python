@@ -38,7 +38,7 @@ public class SharedValueInContext {
             System.out.println("Before value sharedBooleanObject: " + sharedBooleanObject);
             /* getPolyglotBindings - Precisa usar poly.import_value('sharedBooleanObject'), implicitamente é incorporada no código python */
             ctx.getPolyglotBindings().putMember("sharedBooleanObject", sharedBooleanObject);
-            Value methodRun = ctx.getBindings("python").getMember("methodSharedObject");
+            Value methodRun = ctx.getBindings("python").getMember("method_shared_object");
             methodRun.execute();
             System.out.println("After value sharedBooleanObject: " + sharedBooleanObject);
 
@@ -46,7 +46,7 @@ public class SharedValueInContext {
             System.out.println("Before value sharedValueObject: " + valueIncorporated.getValue().toString());
             /* getPolyglotBindings - Precisa usar poly.import_value('sharedBooleanObject'), implicitamente é incorporada no código python. Perceba que é possível compartilhar com TODAS linguages do Context (Python & Js) */
             ctx.getPolyglotBindings().putMember("valueIncorporated", valueIncorporated);
-            methodRun = ctx.getBindings("python").getMember("methodSharedValueObject");
+            methodRun = ctx.getBindings("python").getMember("method_shared_value_object");
             methodRun.execute();
             System.out.println("After value sharedValueObject: " + valueIncorporated.getValue().asString());
 

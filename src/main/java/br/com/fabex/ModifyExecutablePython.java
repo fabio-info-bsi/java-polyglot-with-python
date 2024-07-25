@@ -11,9 +11,9 @@ import java.util.Objects;
 public class ModifyExecutablePython {
 
     public static void main(String[] args) throws Exception {
-        String venvExePath = Objects.requireNonNull(TaskAnalyzerUserRollout.class
+        String venvExePath = Objects.requireNonNull(ModifyExecutablePython.class
                         .getClassLoader()
-                        .getResource(Paths.get("polyglot/python/", ".env-3", "bin", "graalpython")
+                        .getResource(Paths.get("polyglot/python/", ".env-3.10.8", "bin", "graalpy")
                                 .toString()))
                 .getPath();
         try (Context ctx = Context
@@ -25,8 +25,9 @@ public class ModifyExecutablePython {
             URL urlScriptPython = HelloWorld.class
                     .getClassLoader()
                     .getResource(Paths.get("polyglot/python/src/script-utils.py").toString());
+
             ctx.eval(Source.newBuilder("python", urlScriptPython).build());
-            Value method = ctx.getBindings("python").getMember("methodVersionPython");
+            Value method = ctx.getBindings("python").getMember("method_version_python");
             method.execute();
         }
     }
