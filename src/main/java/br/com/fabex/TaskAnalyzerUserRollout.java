@@ -30,7 +30,7 @@ public class TaskAnalyzerUserRollout {
     public static void main(String[] args) throws Exception {
         String venvExePath = Objects.requireNonNull(TaskAnalyzerUserRollout.class
                         .getClassLoader()
-                        .getResource(Paths.get("polyglot", "python", ".env-3.10", "bin", "graalpy").toString()))
+                        .getResource(Paths.get("polyglot", "python", ".env", "bin", "graalpy").toString()))
                 .getPath();
         try (Context ctx = Context.newBuilder()
                 .allowPolyglotAccess(PolyglotAccess.newBuilder()
