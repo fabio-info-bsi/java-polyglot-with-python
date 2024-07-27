@@ -25,7 +25,7 @@ public class SharedValueInContext {
             Boolean sharedBooleanObject = false;
             /* Value - compartilha valores entre os contextos [Java <-> Pythton] */
             Value sharedValueObject = Value.asValue(Boolean.FALSE);
-            /* ObjectValueIncorporated - Classe com metodos que mermitem interoperabilidade entre linguages convidadas. Vale destacar a anotacao: @HostAccess.Export */
+            /* ObjectValueIncorporated - Classe com metodos que mpermitem interoperabilidade entre linguages convidadas. Vale destacar a anotacao: @HostAccess.Export */
 
             ObjectValueIncorporated valueIncorporated = new ObjectValueIncorporated();
 
@@ -36,7 +36,7 @@ public class SharedValueInContext {
 
             System.out.println("= = = = = = = = = = Shared Object = = = = = = = = = = ");
             System.out.println("Before value sharedBooleanObject: " + sharedBooleanObject);
-            /* getPolyglotBindings - Precisa usar poly.import_value('sharedBooleanObject'), implicitamente é incorporada no código python */
+            /* getPolyglotBindings - Precisa usar poly.import_value('method_shared_object'), implicitamente é incorporada no código python */
             ctx.getPolyglotBindings().putMember("sharedBooleanObject", sharedBooleanObject);
             Value methodRun = ctx.getBindings("python").getMember("method_shared_object");
             methodRun.execute();

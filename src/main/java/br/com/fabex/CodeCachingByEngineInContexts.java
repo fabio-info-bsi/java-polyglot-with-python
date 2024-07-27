@@ -27,12 +27,12 @@ public class CodeCachingByEngineInContexts {
                     .cached(true) /* default is true */
                     .build();
             System.out.println("Caching Engine");
-            IntStream.rangeClosed(1, 1_000).forEach(i -> runningContextByEngine(engine, source));
+            IntStream.rangeClosed(1, 1_50).forEach(i -> runningContextByEngine(engine, source));
             System.out.println("Renew Engine");
             Source sourceNoCached = Source.newBuilder("python", urlScriptPython)
                     .cached(false)
                     .build();
-            IntStream.rangeClosed(1, 1_000).forEach(i -> runningContextByEngine(Engine.create(), sourceNoCached));
+            IntStream.rangeClosed(1, 1_50).forEach(i -> runningContextByEngine(Engine.create(), sourceNoCached));
 
         }
     }
