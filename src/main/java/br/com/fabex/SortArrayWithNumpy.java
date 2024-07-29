@@ -18,7 +18,7 @@ public class SortArrayWithNumpy {
     public static void main(String[] args) throws Exception {
         String venvExePath = Objects.requireNonNull(TaskAnalyzerUserRollout.class
                         .getClassLoader()
-                        .getResource(Paths.get("polyglot", "python", ".env-3.10.8", "bin", "python").toString()))
+                        .getResource(Paths.get("polyglot", "python", ".env", "bin", "python").toString()))
                 .getPath();
         try (Context ctx = Context.newBuilder()
                 .allowExperimentalOptions(true)

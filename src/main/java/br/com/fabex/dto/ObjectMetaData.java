@@ -3,12 +3,13 @@ package br.com.fabex.dto;
 import org.graalvm.polyglot.HostAccess;
 import org.graalvm.polyglot.Value;
 
-public class ObjectMetaDado {
-    private String id, module;
-    @HostAccess.Export
+public class ObjectMetaData {
+    private int id;
+    private String module;
+//    @HostAccess.Export
     private Value value;
 
-    public ObjectMetaDado(String id, String module) {
+    public ObjectMetaData(int id, String module) {
         this.id = id;
         this.module = module;
         this.value = Value.asValue("Init");
@@ -25,12 +26,31 @@ public class ObjectMetaDado {
         return value;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    @HostAccess.Export
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getModule() {
+        return module;
+    }
+
+    @HostAccess.Export
+    public void setModule(String module) {
+        this.module = module;
+    }
+
     @HostAccess.Export
     public String getDetail() {
         return """
                 {
                     "id": %s,
                     "module": %s
-                }""".formatted(this.id, this.module);
+                    "value": %s
+                }""".formatted(this.id, this.module, this.value);
     }
 }

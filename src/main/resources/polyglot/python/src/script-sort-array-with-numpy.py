@@ -1,11 +1,9 @@
-import site
-import polyglot as poly
+from polyglot import export_value
 import numpy as np
 
 
 def method_sort_array(arr):
-    newArr = np.sort(list(arr))
-    return newArr.tolist()
+    return np.sort(list(arr)).tolist()
 
 
-poly.export_value("method_sort_array", method_sort_array)
+export_value("method_sort_array", method_sort_array)
