@@ -13,7 +13,7 @@ public class ModifyExecutablePython {
     public static void main(String[] args) throws Exception {
         String venvExePath = Objects.requireNonNull(ModifyExecutablePython.class
                         .getClassLoader()
-                        .getResource(Paths.get("polyglot/python/", ".env-3.10.8", "bin", "graalpy")
+                        .getResource(Paths.get("polyglot/python/", ".env", "bin", "graalpy")
                                 .toString()))
                 .getPath();
         try (Context ctx = Context

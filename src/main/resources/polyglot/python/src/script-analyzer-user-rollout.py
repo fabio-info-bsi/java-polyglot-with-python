@@ -17,20 +17,18 @@ logging.basicConfig(
 global_data_rollout = []
 
 
-def load_data_source_roll_out(pathDataSource):
+def load_data_source_roll_out(path_data_source):
     global global_data_rollout
-    filtered = list(filter(lambda _obj: _obj['path'] == pathDataSource, global_data_rollout))
+    filtered = list(filter(lambda _obj: _obj['path'] == path_data_source, global_data_rollout))
     if len(filtered) == 0:
-        # logging.info('loadding ...')
-        user_roll_out_data = pd.read_csv(pathDataSource, delimiter=";", header=0).values
+        user_roll_out_data = pd.read_csv(path_data_source, delimiter=";", header=0).values
         data_source = {
-            'path': pathDataSource,
+            'path': path_data_source,
             'value': user_roll_out_data
         }
         global_data_rollout.append(data_source)
         return user_roll_out_data
     else:
-        # logging.info('cache ...')
         return filtered[0]['value']
 
 

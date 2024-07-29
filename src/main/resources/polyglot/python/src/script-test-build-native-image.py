@@ -6,9 +6,9 @@ def method_loading_file(path_data_source):
             text = file.read()
             print(f'ok -> {text}')
     except Exception as e:
-        print(f'Erro: {e}')
+        print(f'Error: {e}')
 
 
-if __name__ == '__main__':
-    method_loading_file(
-        "/Users/fabio.henrique/Workspace-fabex/java-polyglot-with-python/src/main/resources/dataset/user-rollout.csv")
+# if __name__ == '__main__':
+#     method_loading_file(
+#         "/Users/fabio.henrique/Workspace-fabex/java-polyglot-with-python/src/main/resources/dataset/user-rollout.csv")

@@ -1,5 +1,5 @@
 function methodSharedValueObject() {
-    var valueIncorporated = Polyglot.import('valueIncorporated');
+    const valueIncorporated = Polyglot.import('valueIncorporated');
     console.log(`#Console.log#methodSharedValueObject old value valueIncorporated: ${valueIncorporated.getValue()}`)
     console.log(`#Console.log#methodSharedValueObject update value for \'New value!\''`)
     valueIncorporated.setValue('New value!')
@@ -8,4 +8,3 @@ function methodSharedValueObject() {
 }
 
 Polyglot.export('methodShaconredValueObject', methodSharedValueObject);
-console.log("ops!")

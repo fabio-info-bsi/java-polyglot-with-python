@@ -6,7 +6,7 @@ import org.graalvm.polyglot.io.IOAccess;
 import java.net.URL;
 import java.nio.file.Paths;
 
-import br.com.fabex.dto.ObjectMetaDado;
+import br.com.fabex.dto.ObjectMetaData;
 
 public class ControllingAccessToHostFunction {
 
@@ -24,26 +24,26 @@ public class ControllingAccessToHostFunction {
                 .allowExperimentalOptions(true)
                 .option("python.ForceImportSite", "true")
                 .build()) {
-            ObjectMetaDado metaDado = new ObjectMetaDado("1", "Root");
+            ObjectMetaData metaData = new ObjectMetaData(1, "Root");
 
             URL urlScriptPython = ControllingAccessToHostFunction.class
                     .getClassLoader()
                     .getResource(Paths.get("polyglot/python/src/script-utils.py").toString());
 
-            System.out.println("Before: " + metaDado.getValue().toString());
+            System.out.println("Before: " + metaData.getDetail());
 
-            /* getBindings - não precisa usar poly.import_value('metaDado'), implicitamente é incorporada no código python. */
-            ctx.getBindings("python").putMember("metaDado", metaDado);
+            /* getBindings - não precisa usar poly.import_value('meta_data'), implicitamente é incorporada no código python. */
+            ctx.getBindings("python").putMember("meta_data", metaData);
 
             ctx.eval(Source.newBuilder("python", urlScriptPython).build());
             Value methodRun = ctx.getBindings("python")
                     .getMember("method_controlling_value_to_host_and_python");
             methodRun.execute();
-            System.out.println("After: " + metaDado.getValue().asString());
+            System.out.println("After: " + metaData.getDetail());
 
         } catch (Exception e) {
-            System.out.printf("Class: " + e.getClass());
-            e.printStackTrace();
+            System.out.println("Class: " + e.getClass());
+            System.out.println("Message: " + e.getMessage());
         }
     }
 }
